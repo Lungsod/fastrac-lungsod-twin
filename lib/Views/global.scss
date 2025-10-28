@@ -43,6 +43,10 @@ body {
     max-height: 100% !important;
   }
 
+  body .tox.tox-tinymce {
+    max-height: 40vh;
+  }
+
   body .tjs-mobile-modal-window__mobileModal {
     top: 107px;
   }
