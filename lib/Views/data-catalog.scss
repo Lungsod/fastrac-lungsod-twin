@@ -1,0 +1,96 @@
+@use "sass:color";
+@use "../Styles/variables-overrides.scss" as variables;
+
+/* ================================
+   CUSTOM SCROLLBAR (GLOBAL)
+   ================================ */
+
+/* Thicker scrollbar */
+.tjs-_base__scrollbars::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Remove track background */
+.tjs-_base__scrollbars::-webkit-scrollbar-track {
+  background: transparent !important;
+  margin: 6px;
+}
+
+/* Default thumb (idle) */
+.tjs-_base__scrollbars::-webkit-scrollbar-thumb {
+  background-color: variables.$color-secondary; /* light violet */
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+/* Hover thumb */
+.tjs-_base__scrollbars::-webkit-scrollbar-thumb:hover {
+  background-color: variables.$color-primary; /* dark violet */
+}
+
+/* Active thumb */
+.tjs-_base__scrollbars::-webkit-scrollbar-thumb:active {
+  background-color: color.adjust(variables.$color-primary, $lightness: -8%);
+}
+
+/* Slight gap between content & scrollbar */
+.tjs-_base__scrollbars {
+  padding-right: 6px;
+  box-sizing: content-box;
+}
+
+/* Firefox */
+.tjs-_base__scrollbars {
+  scrollbar-width: thin;
+  scrollbar-color: variables.$color-secondary transparent;
+}
+
+/* =======================================
+   DATA CATALOG — GROUP BUTTONS
+   ======================================= */
+
+/* Default state */
+body .tjs-data-catalog-group__btn--catalog {
+  background-color: variables.$color-primary !important;
+  color: #fff !important;
+}
+
+/* Hover */
+body .tjs-data-catalog-group__btn--catalog:hover,
+body .tjs-data-catalog-group__btn--catalog:focus {
+  background-color: color.adjust(
+    variables.$color-primary,
+    $lightness: -5%
+  ) !important;
+}
+
+/* Active / clicked */
+body .tjs-data-catalog-group__btn--catalog:active {
+  background-color: color.adjust(
+    variables.$color-primary,
+    $lightness: -10%
+  ) !important;
+}
+
+/* =======================================
+   DATA CATALOG — ITEM BUTTONS
+   ======================================= */
+
+/* This is the stable SC component class */
+body .CatalogItem__ItemTitleButton-sc-7i65e4-1 {
+  color: variables.$color-primary !important;
+  background: transparent !important;
+}
+
+/* Hover */
+body .CatalogItem__ItemTitleButton-sc-7i65e4-1:hover,
+body .CatalogItem__ItemTitleButton-sc-7i65e4-1:focus {
+  color: color.adjust(variables.$color-primary, $lightness: -5%) !important;
+}
+
+/* Active */
+body .CatalogItem__ItemTitleButton-sc-7i65e4-1:active {
+  color: color.adjust(variables.$color-primary, $lightness: -10%) !important;
+}

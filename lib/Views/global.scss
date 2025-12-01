@@ -8,7 +8,7 @@ body {
 }
 
 :global {
-  @import "./custom-scrollbar.scss";
+  @import "./data-catalog.scss";
 
   // Override StandardUserInterface to work with flex layout
   // Need to use very specific selectors to override styled-components
