@@ -13,7 +13,7 @@
 
 /* Remove track background */
 .tjs-_base__scrollbars::-webkit-scrollbar-track {
-  background: transparent !important;
+  background: rgba(0, 0, 0, 0.04) !important;
   margin: 6px;
 }
 
@@ -21,8 +21,8 @@
 .tjs-_base__scrollbars::-webkit-scrollbar-thumb {
   background-color: variables.$color-secondary; /* light violet */
   border-radius: 10px;
-  border: 4px solid transparent;
-  background-clip: content-box;
+  // border: 4px solid transparent;
+  // background-clip: content-box;
 }
 
 /* Hover thumb */
