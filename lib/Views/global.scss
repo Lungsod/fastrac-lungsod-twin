@@ -45,8 +45,16 @@ body {
     max-height: 100% !important;
   }
 
+  body .tox.tox-tinymce {
+    max-height: 40vh;
+  }
+
   body .tjs-mobile-modal-window__mobileModal {
     top: 107px;
+  }
+
+  body .tjs-map-interaction-window__window {
+    top: 86px !important;
   }
 
   body .tjs-mobile-header__ui {
