@@ -24,13 +24,13 @@
     "mobileDefaultViewerMode": "2d",
     "experimentalFeatures": true,
     "languageConfiguration": {
-      "enabled": false,
+      "enabled": true,
       "debug": false,
       "languages": {
         "en": "English",
-        "fr": "Français"
+        "en-US": "English (US)"
       },
-      "fallbackLanguage": "en"
+      "fallbackLanguage": "en-US"
     },
     "searchBarConfig": {
       "boundingBoxLimit": {
@@ -42,13 +42,11 @@
     },
     "searchProviders": [
       {
-        "id": "search-provider/nominatim",
-        "type": "nominatim-search-provider",
-        "name": "Nominatim",
-        "countryCodes": "PH",
+        "id": "search-provider/cesium-ion",
+        "type": "cesium-ion-search-provider",
+        "name": "translate#viewModels.searchLocations",
         "flightDurationSeconds": 1.5,
-        "minCharacters": 3,
-        "maxResults": 10
+        "minCharacters": 3
       }
     ],
     "extraCreditLinks": [

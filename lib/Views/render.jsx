@@ -6,6 +6,7 @@ import Variables from "../Styles/variables.scss";
 import "./global.scss";
 import { Loader } from "./Loader";
 import { terriaStore } from "./terriaStore";
+import { enableCatalogAutoScroll } from "./autoScrollCatalog";
 
 // Lazy load the entire TerriaUserInterface component
 const LazyTerriaUserInterface = React.lazy(() =>
@@ -43,4 +44,5 @@ export const renderUi = (root) => {
   }
 
   root.render(<Root themeOverrides={Variables} />);
+  enableCatalogAutoScroll();
 };

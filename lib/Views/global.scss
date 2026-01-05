@@ -8,6 +8,8 @@ body {
 }
 
 :global {
+  @import "./data-catalog.scss";
+
   // Override StandardUserInterface to work with flex layout
   // Need to use very specific selectors to override styled-components
   body div[class*="tjs-standard-user-interface__ui-root"] {
@@ -43,8 +45,16 @@ body {
     max-height: 100% !important;
   }
 
+  body .tox.tox-tinymce {
+    max-height: 40vh;
+  }
+
   body .tjs-mobile-modal-window__mobileModal {
     top: 107px;
+  }
+
+  body .tjs-map-interaction-window__window {
+    top: 86px !important;
   }
 
   body .tjs-mobile-header__ui {
