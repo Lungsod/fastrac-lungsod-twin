@@ -24,13 +24,13 @@
     "mobileDefaultViewerMode": "2d",
     "experimentalFeatures": true,
     "languageConfiguration": {
-      "enabled": false,
+      "enabled": true,
       "debug": false,
       "languages": {
         "en": "English",
-        "fr": "Français"
+        "en-US": "English (US)"
       },
-      "fallbackLanguage": "en"
+      "fallbackLanguage": "en-US"
     },
     "searchProviders": [
       {
