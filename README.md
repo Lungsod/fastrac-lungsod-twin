@@ -20,7 +20,7 @@ BING_MAPS_KEY=your_bing_maps_key_here
 Install the required packages, run gulp to bundle the files, and then run the included Express server.
 
 ```
-npm install
+npm install --legacy-peer-deps
 yarn gulp --baseHref="/twin/"
 yarn start
 ```
