@@ -24,10 +24,11 @@
     "url": "http://github.com/TerriaJS/TerriaMap"
   },
   "dependencies": {
-    "@smartmetro/codex-auth": "github:Lungsod/codex-auth",
+    "@smartmetro/codex-auth": "git+https://github.com/Lungsod/codex-auth.git#main",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "terriajs-server": "^4.0.2"
+    "mini-css-extract-plugin": "^2.9.2",
+    "terriajs-server": "^4.0.3"
   },
   "config": {
     "docker": {
@@ -46,6 +47,7 @@
     "@babel/preset-react": "^7.27.1",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
     "@typescript-eslint/parser": "^8.24.0",
+    "ajv": "^8.17.1",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
     "eslint": "^8.57.1",
@@ -65,7 +67,7 @@
     "minimist": "^1.2.8",
     "node-notifier": "^10.0.1",
     "plugin-error": "^2.0.1",
-    "prettier": "^3.6.2",
+    "prettier": "2.8.8",
     "pretty-quick": "^4.0.0",
     "prop-types": "^15.6.0",
     "react": "^18.3.1",
@@ -74,9 +76,9 @@
     "sass": "^1.81.0",
     "sass-loader": "^16.0.3",
     "style-loader": "^4.0.0",
-    "terriajs": "8.11.0",
-    "terriajs-cesium": "21.0.0",
     "svg-sprite": "^2.0.4",
+    "terriajs": "https://github.com/Lungsod/metro-terriajs.git#feat/workbench-testing",
+    "terriajs-cesium": "21.0.1",
     "terriajs-plugin-api": "0.0.1-alpha.17",
     "terriajs-plugin-sample": "0.0.1-alpha.7",
     "typescript": "^5.9.2",

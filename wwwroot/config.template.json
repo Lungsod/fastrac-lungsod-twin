@@ -32,21 +32,16 @@
       },
       "fallbackLanguage": "en-US"
     },
-    "searchBarConfig": {
-      "boundingBoxLimit": {
-        "west": 121.745356,
-        "south": 10.125709,
-        "east": 123.468837,
-        "north": 11.209387
-      }
-    },
     "searchProviders": [
       {
-        "id": "search-provider/cesium-ion",
-        "type": "cesium-ion-search-provider",
-        "name": "translate#viewModels.searchLocations",
+        "id": "search-provider/nominatim",
+        "type": "custom-nominatim-search-provider",
+        "name": "Lungsod Nominatim",
+        "countryCodes": "PH",
         "flightDurationSeconds": 1.5,
-        "minCharacters": 3
+        "minCharacters": 3,
+        "maxResults": 10,
+        "url": "//nominatim.lungsod.ph/search"
       }
     ],
     "extraCreditLinks": [
