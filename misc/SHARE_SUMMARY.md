@@ -296,13 +296,13 @@ Create a cron job:
 crontab -e
 
 # Add daily backup at 2 AM
-0 2 * * * cd /path/to/metro-codex && tar -czf backups/sharedata-$(date +\%Y\%m\%d).tar.gz sharedata/
+0 2 * * * cd /path/to/lungsod-twin && tar -czf backups/sharedata-$(date +\%Y\%m\%d).tar.gz sharedata/
 ```
 
 ### Restore from Backup
 
 ```bash
-cd /path/to/metro-codex
+cd /path/to/lungsod-twin
 tar -xzf backups/sharedata-20251015.tar.gz
 node server.js
 ```

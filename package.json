@@ -21,10 +21,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/TerriaJS/TerriaMap"
+    "url": "git@github.com:Lungsod/fastrac-lungsod-twin.git"
   },
   "dependencies": {
-    "@smartmetro/codex-auth": "git+https://github.com/Lungsod/codex-auth.git#main",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mini-css-extract-plugin": "^2.9.2",

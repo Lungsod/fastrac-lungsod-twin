@@ -1,5 +1,5 @@
 {
-  "initializationUrls": ["simple", "/api/twin/catalog.json"],
+  "initializationUrls": ["lungsod"],
   "parameters": {
     "googleUrlShortenerKey": null,
     "googleAnalyticsKey": null,
@@ -11,15 +11,15 @@
       "text": "Disclaimer: This map must not be used for navigation or precise spatial analysis",
       "url": ""
     },
-    "appName": "Codex Digital Twin",
+    "appName": "Lungsod Digital Twin",
     "brandBarElements": [
       "",
-      "<img src=\"images/metro-logo.png\" height=\"72\" title=\"Version: {{version}}\" />",
+      "<span style=\"font-size:16px;font-weight:600;color:white;padding:8px\">Lungsod Digital Twin</span>",
       ""
     ],
     "shortenShareUrls": true,
     "aboutButtonHrefUrl": "about/",
-    "supportEmail": "smartmetro.upd@up.edu.ph",
+    "supportEmail": "projectlungsod.upd@up.edu.ph",
     "proj4ServiceBaseUrl": "proj4def/",
     "mobileDefaultViewerMode": "2d",
     "experimentalFeatures": true,

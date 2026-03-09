@@ -4,7 +4,7 @@
 
 The application now supports loading a private catalog (`/api/twin/private-catalog.json`) only for authenticated users. This allows you to have public and private data layers in your Terria map.
 
-**Important:** All requests to `/api/` endpoints and domains containing `codex.localhost` automatically include the JWT token in the `Authorization: Bearer <token>` header.
+**Important:** All requests to `/api/` endpoints and domains containing `the application domain` automatically include the JWT token in the `Authorization: Bearer <token>` header.
 
 ## How It Works
 
@@ -22,7 +22,7 @@ The application checks if the user is authenticated by:
 
 - **XMLHttpRequest** - Used by TerriaJS for loading data layers
 - **fetch API** - Used for modern HTTP requests
-- All requests to URLs containing `/api/` or `codex.localhost`
+- All requests to URLs containing `/api/` or `the application domain`
 
 This means:
 

@@ -52,9 +52,9 @@ module.exports = function ({ devMode, baseHref = "/" }) {
           include: path.resolve(__dirname, "..", "wwwroot", "images"),
           type: "asset" // inlines as data url if size < 8kb
         },
-        // import loading.gif
+        // import logo/loading assets from lib/Styles
         {
-          test: /loading\.gif$/,
+          test: /\.(png|gif)$/,
           include: path.resolve(__dirname, "..", "lib", "Styles"),
           type: "asset",
           parser: {

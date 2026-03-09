@@ -10,21 +10,16 @@
 $font-base: "DM Sans", sans-serif;
 $font-pop: $font-base; // If you just want to use one font throughout, do this.
 
-// These variables are for buttons and text.
-// "color-secondary" should be a lighter color than "color-primary" but still readable contrasted with white.
-$color-primary: #433977;
-$color-secondary: #afacd7;
+// Default Lungsod blue — overridden at runtime by site config
+$color-primary: #2563eb;
+$color-secondary: #93c5fd;
 
 // These variables set background panel colors
-$dark: #4c4a89;
-$dark-with-overlay: #4c4a89;
-$dark-lighter: color.adjust(#4c4a89, $lightness: 10%);
+$dark: #1e3a5f;
+$dark-with-overlay: #1e3a5f;
+$dark-lighter: color.adjust(#1e3a5f, $lightness: 10%);
 
 // You might find it helpful to define these and use them.
-$color-primary-light: color.adjust(#4c4a89, $lightness: 10%);
-$color-primary-dark: color.adjust(#4c4a89, $lightness: -10%);
-$dark-darker: color.adjust(#4c4a89, $lightness: -10%);
-
-// D3D6FD
-// DEDCF6
-// 4C4A89
+$color-primary-light: color.adjust(#1e3a5f, $lightness: 10%);
+$color-primary-dark: color.adjust(#1e3a5f, $lightness: -10%);
+$dark-darker: color.adjust(#1e3a5f, $lightness: -10%);

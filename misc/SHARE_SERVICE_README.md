@@ -1,6 +1,6 @@
 # Share Link Service Implementation
 
-This document describes the share link service implementation for the Metro Codex Digital Twin (TerriaMap fork).
+This document describes the share link service implementation for the Lungsod Digital Twin (TerriaMap fork).
 
 ## Overview
 

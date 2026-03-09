@@ -68,7 +68,7 @@ node url-shortener.js
 After creating share links, you'll see:
 
 ```
-metro-codex/
+lungsod-twin/
 ├── sharedata/              # Terria share data
 │   ├── index.json          # Metadata
 │   └── data/

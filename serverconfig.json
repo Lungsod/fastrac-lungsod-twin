@@ -10,24 +10,18 @@
   },
 
   "allowProxyFor": [
+    "localhost",
+    "dev-app",
+    "dev-nginx",
     "nicta.com.au",
     "gov.au",
     "csiro.au",
-    "argo.jcommops.org",
-    "www.abc.net.au",
-    "geoserver.aurin.org.au",
-    "mapsengine.google.com",
-    "s3-ap-southeast-2.amazonaws.com",
-    "adelaidecitycouncil.com",
-    "www.dptiapps.com.au",
-    "geoserver-123.aodn.org.au",
-    "geoserver.imos.org.au",
-    "nci.org.au",
-    "static.nationalmap.nicta.com.au",
-    "githubusercontent.com",
-    "gov",
-    "gov.uk",
-    "gov.nz",
-    "services.aremi.data61.io"
+    "server.arcgisonline.com",
+    "services.arcgisonline.com",
+    "tile.openstreetmap.org",
+    "basemaps.cartocdn.com",
+    "api.cesium.com",
+    "assets.cesium.com",
+    "ion.cesium.com"
   ]
 }

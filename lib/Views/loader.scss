@@ -11,7 +11,7 @@
   transition: opacity 2s;
   opacity: 1;
   pointer-events: none;
-  background-color: #413f90;
+  background-color: #1e3a5f;
 }
 
 .loader-ui img {
@@ -21,6 +21,12 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 /* Small mobile devices */
@@ -47,9 +53,9 @@
     transform: perspective(10px) rotateY(10deg);
     padding: 8px 0px;
     border-width: 0px 1px 0px 0px;
-    border-right: 1px solid #3f4854;
+    border-right: 1px solid #1e3a5f;
     border-radius: 0px 2px 2px 0px;
-    background: #3f4854;
+    background: #1e3a5f;
     z-index: -2;
   }
 }
