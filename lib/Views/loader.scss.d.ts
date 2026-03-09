@@ -6,6 +6,7 @@ declare namespace LoaderScssNamespace {
     loaderUi: string;
     loaderUiGrabber: string;
     loaderUiHide: string;
+    pulse: string;
   }
 }
 

@@ -2,34 +2,60 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Loader } from "./lib/Views/Loader";
 
+let mountedRoot;
+
 async function loadMainScript() {
   return import("terriajs/lib/Core/prerequisites")
     .then(() => import("./index"))
     .then(({ default: terriaPromise }) => terriaPromise);
 }
 
-function createLoader() {
-  // Show the Loader component while loading
-  const container = document.getElementById("ui");
-  if (!container) {
-    console.error("Container element with id 'ui' not found.");
-    return;
-  }
-
-  // Create root once and reuse it
-  const root = createRoot(container);
+async function bootstrap(root) {
   root.render(<Loader />);
-
-  loadMainScript()
-    .then(() => {
-      // Import and call renderUi to mount the React app, passing the existing root
-      return import("./lib/Views/render").then(({ renderUi }) => {
-        renderUi(root);
-      });
-    })
-    .catch((err) => {
-      console.error("Error loading main script:", err);
-    });
+  await loadMainScript();
+  const { renderUi } = await import("./lib/Views/render");
+  renderUi(root);
 }
 
-createLoader();
+function resolveContainer(target) {
+  if (!target || target === "ui") {
+    return document.getElementById("ui");
+  }
+
+  if (typeof target === "string") {
+    return document.getElementById(target);
+  }
+
+  return target;
+}
+
+export async function mountTerria(target = "ui") {
+  const container = resolveContainer(target);
+  if (!container) {
+    throw new Error("Container element for Terria mount was not found.");
+  }
+
+  if (mountedRoot) {
+    mountedRoot.unmount();
+    mountedRoot = undefined;
+  }
+
+  mountedRoot = createRoot(container);
+  await bootstrap(mountedRoot);
+}
+
+export function unmountTerria() {
+  if (mountedRoot) {
+    mountedRoot.unmount();
+    mountedRoot = undefined;
+  }
+}
+
+if (typeof window !== "undefined") {
+  const autoContainer = document.getElementById("ui");
+  if (autoContainer) {
+    mountTerria(autoContainer).catch((err) => {
+      console.error("Error loading main script:", err);
+    });
+  }
+}
