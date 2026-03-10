@@ -20,7 +20,7 @@ module.exports = function ({ devMode, baseHref = "/" }) {
       path: path.resolve(__dirname, "..", "wwwroot", "build"),
       filename: "TerriaMap.js",
       library: {
-        name: "TerriaMapEmbed",
+        name: "LungsodTwin",
         type: "window"
       },
       publicPath: "/twin/build/",

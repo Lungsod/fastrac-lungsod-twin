@@ -10,13 +10,6 @@ async function loadMainScript() {
     .then(({ default: terriaPromise }) => terriaPromise);
 }
 
-async function bootstrap(root) {
-  root.render(<Loader />);
-  await loadMainScript();
-  const { renderUi } = await import("./lib/Views/render");
-  renderUi(root);
-}
-
 function resolveContainer(target) {
   if (!target || target === "ui") {
     return document.getElementById("ui");
@@ -29,19 +22,40 @@ function resolveContainer(target) {
   return target;
 }
 
+/**
+ * Mount TerriaJS into an arbitrary container element.
+ * Used by the Lungsod command app to embed the Digital Twin as a micro-frontend.
+ *
+ * @param {HTMLElement|string} target - DOM element or element ID to mount into (default: "ui")
+ * @returns {Promise<{ terria, viewState, unmount }>}
+ */
 export async function mountTerria(target = "ui") {
   const container = resolveContainer(target);
   if (!container) {
     throw new Error("Container element for Terria mount was not found.");
   }
 
+  // Tear down previous mount if re-mounting
   if (mountedRoot) {
     mountedRoot.unmount();
     mountedRoot = undefined;
   }
 
   mountedRoot = createRoot(container);
-  await bootstrap(mountedRoot);
+  mountedRoot.render(<Loader />);
+
+  // Load TerriaJS core + our index (creates Terria instance)
+  const { terria, viewState } = await loadMainScript();
+
+  // Import and render the full UI
+  const { renderUi } = await import("./lib/Views/render");
+  renderUi(mountedRoot);
+
+  return {
+    terria,
+    viewState,
+    unmount: unmountTerria,
+  };
 }
 
 export function unmountTerria() {
@@ -51,6 +65,7 @@ export function unmountTerria() {
   }
 }
 
+// Standalone mode: auto-mount if the #ui container exists (i.e. loaded at /twin/)
 if (typeof window !== "undefined") {
   const autoContainer = document.getElementById("ui");
   if (autoContainer) {

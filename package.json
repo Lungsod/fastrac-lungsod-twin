@@ -79,7 +79,7 @@
     "sass-loader": "^16.0.3",
     "style-loader": "^4.0.0",
     "svg-sprite": "^2.0.4",
-    "terriajs": "file:../metro-terriajs/terriajs-8.11.3.tgz",
+    "terriajs": "file:./terriajs-8.11.3.tgz",
     "terriajs-cesium": "21.0.1",
     "terriajs-plugin-api": "0.0.1-alpha.17",
     "terriajs-plugin-sample": "0.0.1-alpha.7",
