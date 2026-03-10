@@ -2,34 +2,75 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Loader } from "./lib/Views/Loader";
 
+let mountedRoot;
+
 async function loadMainScript() {
   return import("terriajs/lib/Core/prerequisites")
     .then(() => import("./index"))
     .then(({ default: terriaPromise }) => terriaPromise);
 }
 
-function createLoader() {
-  // Show the Loader component while loading
-  const container = document.getElementById("ui");
-  if (!container) {
-    console.error("Container element with id 'ui' not found.");
-    return;
+function resolveContainer(target) {
+  if (!target || target === "ui") {
+    return document.getElementById("ui");
   }
 
-  // Create root once and reuse it
-  const root = createRoot(container);
-  root.render(<Loader />);
+  if (typeof target === "string") {
+    return document.getElementById(target);
+  }
 
-  loadMainScript()
-    .then(() => {
-      // Import and call renderUi to mount the React app, passing the existing root
-      return import("./lib/Views/render").then(({ renderUi }) => {
-        renderUi(root);
-      });
-    })
-    .catch((err) => {
-      console.error("Error loading main script:", err);
-    });
+  return target;
 }
 
-createLoader();
+/**
+ * Mount TerriaJS into an arbitrary container element.
+ * Used by the Lungsod command app to embed the Digital Twin as a micro-frontend.
+ *
+ * @param {HTMLElement|string} target - DOM element or element ID to mount into (default: "ui")
+ * @returns {Promise<{ terria, viewState, unmount }>}
+ */
+export async function mountTwin(target = "ui") {
+  const container = resolveContainer(target);
+  if (!container) {
+    throw new Error("Container element for Terria mount was not found.");
+  }
+
+  // Tear down previous mount if re-mounting
+  if (mountedRoot) {
+    mountedRoot.unmount();
+    mountedRoot = undefined;
+  }
+
+  mountedRoot = createRoot(container);
+  mountedRoot.render(<Loader />);
+
+  // Load TerriaJS core + our index (creates Terria instance)
+  const { terria, viewState } = await loadMainScript();
+
+  // Import and render the full UI
+  const { renderUi } = await import("./lib/Views/render");
+  renderUi(mountedRoot);
+
+  return {
+    terria,
+    viewState,
+    unmount: unmountTwin,
+  };
+}
+
+export function unmountTwin() {
+  if (mountedRoot) {
+    mountedRoot.unmount();
+    mountedRoot = undefined;
+  }
+}
+
+// Standalone mode: auto-mount if the #ui container exists (i.e. loaded at /twin/)
+if (typeof window !== "undefined") {
+  const autoContainer = document.getElementById("ui");
+  if (autoContainer) {
+    mountTwin(autoContainer).catch((err) => {
+      console.error("Error loading main script:", err);
+    });
+  }
+}

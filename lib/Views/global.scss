@@ -10,6 +10,11 @@ body {
 :global {
   @import "./data-catalog.scss";
 
+  // Ensure #ui fills the viewport in standalone mode.
+  #ui {
+    height: 100%;
+  }
+
   // Override StandardUserInterface to work with flex layout
   // Need to use very specific selectors to override styled-components
   body div[class*="tjs-standard-user-interface__ui-root"] {
