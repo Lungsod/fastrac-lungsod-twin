@@ -146,7 +146,7 @@ if (process.env.NODE_ENV === "development") {
 export default terria
   .start({
     applicationUrl: window.location,
-    configUrl: "config.json",
+    configUrl: "/twin/config.json",
     shareDataService: new ShareDataService({
       terria: terria
     }),
